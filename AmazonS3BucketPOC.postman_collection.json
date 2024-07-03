@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "befec3f5-7b7f-48cf-a673-99e7a0a7a4c2",
+		"name": "AmazonS3BucketPOC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Upload File",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fileData\":\"Hello This Is The Amazon S3 File.\",\r\n    \"fileName\":\"amazontest\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/s3/create-and-upload"
+			},
+			"response": [
+				{
+					"name": "Upload File",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fileData\":\"Hello This Is The Amazon S3 File.\",\r\n    \"fileName\":\"amazontest\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/s3/create-and-upload"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "content-length",
+							"value": "90"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errorCode\": \"0000\",\n    \"errorDescription\": \"File uploaded successfully\",\n    \"exceptionMessage\": \"\"\n}"
+				}
+			]
+		}
+	]
+}

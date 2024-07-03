@@ -1,0 +1,34 @@
+// amazon s3 POC
+
+1] Docker Image Installation
+	- docker run -it --publish 4566:4566 -e SERVICES=s3 -e START_WEB=0 localstack/localstack:3.0.1
+
+	- AWS CLI install
+
+	- configure stack:
+		PS C:\Users\Siddhatech> aws configure --profile localstack
+		AWS Access Key ID [None]: test-key
+		AWS Secret Access Key [None]: test-secret
+		Default region name [None]: us-east-1
+		Default output format [None]:
+
+	- Create Bucket Name
+		PS C:\Users\Siddhatech> aws s3 mb s3://quarkus.s3.quickstart --profile localstack --endpoint-url=http://localhost:4566
+		make_bucket: quarkus.s3.quickstart
+
+* Testing Cmd *
+
+- Env Variables
+
+set AWS_ACCESS_KEY_ID=test-key
+set AWS_SECRET_ACCESS_KEY=test-secret
+set AWS_DEFAULT_REGION=us-east-1
+
+Bucket list name
+aws --endpoint-url=http://localhost:4566 s3 ls
+
+List file
+aws --endpoint-url=http://localhost:4566 s3 ls s3://quarkus.s3.quickstart
+
+Delete file from bucket
+aws --endpoint-url=http://localhost:4566 s3 rm s3://quarkus.s3.quickstart --recursive
